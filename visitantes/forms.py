@@ -3,11 +3,9 @@ from .models import Visitante
 from typing_extensions import Required
 
 class VisitanteForm(forms.ModelForm):
-
     class Meta:
         model = Visitante
-        fields = [
-            'nome_completo','cpf','data_nascimento','numero_casa ','placa_veiculo']
+        fields = ['nome_completo','cpf','data_nascimento','numero_casa','placa_veiculo']
         
         error_messages = {
             'nome_completo':{
@@ -30,7 +28,5 @@ class AutorizaVisitanteForm(forms.ModelForm):
         fields = ['morador_responsavel']
 
         error_messages = {
-            'morador_responsavel':{
-                'required': 'Por Favor,informe o nome do morador responsavel para autorizar a entrada do visitante'
-                },}
+            'morador_responsavel':{'required': 'Por Favor,informe o nome do morador responsavel para autorizar a entrada do visitante'}}
         
