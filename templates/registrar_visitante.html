@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
-{% block conteudo %}
+{% load widget_tweaks %}
+{% block conteudo%}
                     <div class="container">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                             <h1 class="h3 mb-0 text-gray-800">{{ nome_pagina }}</h1>
@@ -13,18 +13,20 @@
                                 </h4>
 
                                 <p class="mb-5 ml-1">
-                                    <small>O asterisco (*) indica que o campo é obrigatório</small>
+                                    <small> O asterisco (*) indica que o campo é obrigatório.</small>
                                 </p>
                     
                                 <form method="post" enctype="multipart/form-data">
                                     <div class="form-row">
-                                        {% csrf_token %}
-                                        {% for field in form %}
+                                       {% csrf_token %}
+                                        {% for  field in form%}
                                         <div class="form-group col-md-12">
-                                            <label>{{field.label}}</label>
+                                            <label>{{field.label}} {% if field.field.required %}*{% endif %}</label>
+                                            {% render_field field placeholder=field.label class='form-control' %}
                                         </div>
-                                    </div>
                                         {% endfor %}
+                                    </div>
+                    
                                     <div class="text-right">
                                         <button class="btn btn-primary" type="submit">
                                             <span class="text">Registrar visitante</span>
@@ -35,4 +37,4 @@
                         </div>
                     </div>
 
-{% endblock conteudo %}          
+{% endblock conteudo%}
