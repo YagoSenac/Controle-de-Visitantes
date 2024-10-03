@@ -3,7 +3,7 @@ from django.contrib import messages
 from visitantes.forms import VisitanteForm
 from django.contrib.auth.decorators import login_required
 
-# @login_required
+@login_required
 def registrar_visitante(request):
     form = VisitanteForm()
     
