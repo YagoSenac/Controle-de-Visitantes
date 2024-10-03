@@ -13,5 +13,5 @@ class Porteiro(models.Model):
         verbose_name_plural = "Porteiros"
         db_table = "porteiro"
 
-        def __str__(self) -> str:
-            return self.nome_completo
+    def __str__(self) -> str:
+        return self.nome_completo

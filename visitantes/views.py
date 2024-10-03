@@ -1,7 +1,8 @@
+
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from visitantes.forms import VisitanteForm
 from django.contrib.auth.decorators import login_required
+from visitantes.forms import VisitanteForm
 
 @login_required
 def registrar_visitante(request):
@@ -25,3 +26,13 @@ def registrar_visitante(request):
     }
     
     return render(request,'registrar_visitante.html',context)
+
+@login_required
+def informacoes_visitante(request):
+    
+    context ={
+        'nome_pagina': 'informacoes_visitante',
+        'informacoes_visitante': 'informacoes_visitante',
+    }
+    
+    return render(request,'informacoes_visitante.html',context)
