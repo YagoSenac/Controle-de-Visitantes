@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from dashboard.views import index
-from visitantes.views import registrar_visitante, informacoes_visitante
+from visitantes.views import registrar_visitante, informacoes_visitante,finalizar_visita
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -26,4 +26,5 @@ urlpatterns = [
     path('registrar-visitante/', registrar_visitante, name='registrar_visitante'),
     path('login/', auth_views.LoginView.as_view(template_name= 'login.html'), name='login'),
     path('visitante/<pk>', informacoes_visitante, name='visitante'),
+    path('visitante/<pk>/finalizar-visita', finalizar_visita, name='finalizar_visita'),
 ]
